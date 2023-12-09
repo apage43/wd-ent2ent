@@ -1,0 +1,18 @@
+[package]
+name = "wd-ent2ent"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+lto = true
+
+[dependencies]
+color-eyre = "0.6.2"
+crossbeam = "0.8.2"
+harriet = "0.3.1"
+indicatif = "0.17.7"
+lasso = { version = "0.7.2", features = ["multi-threaded", "inline-more", "ahasher", "serialize"] }
+mimalloc = "0.1.39"
+rayon = "1.8.0"
+serde_json = "1.0.108"
