@@ -97,6 +97,11 @@ fn main() -> Result<()> {
     );
     let ent_ids = Arc::into_inner(ent_ids).unwrap();
     let rel_ids = Arc::into_inner(rel_ids).unwrap();
+    let meta = serde_json::json!({
+        "n_entities": ent_ids.len(),
+        "n_relations": rel_ids.len(),
+    });
+    serde_json::to_writer(std::fs::File::options().write(true).create(true).open("meta.json")?, &meta)?;
     serde_json::to_writer(std::fs::File::options().write(true).create(true).open("ent_ids.json")?, &ent_ids)?;
     serde_json::to_writer(std::fs::File::options().write(true).create(true).open("rel_ids.json")?, &rel_ids)?;
 

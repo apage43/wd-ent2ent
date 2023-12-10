@@ -8,6 +8,7 @@ edition = "2021"
 lto = true
 
 [dependencies]
+bzip2 = "0.4.4"
 color-eyre = "0.6.2"
 crossbeam = "0.8.2"
 harriet = "0.3.1"

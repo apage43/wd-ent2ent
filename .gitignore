@@ -2,3 +2,4 @@
 out.*
 ent_ids.json
 rel_ids.json
+meta.json
