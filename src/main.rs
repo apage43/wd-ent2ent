@@ -95,8 +95,8 @@ fn main() -> Result<()> {
         ent_ids.len(),
         rel_ids.len()
     );
-    let ent_ids = Arc::into_inner(ent_ids).unwrap();
-    let rel_ids = Arc::into_inner(rel_ids).unwrap();
+    let ent_ids = Arc::into_inner(ent_ids).unwrap().into_reader();
+    let rel_ids = Arc::into_inner(rel_ids).unwrap().into_reader();
     let meta = serde_json::json!({
         "n_entities": ent_ids.len(),
         "n_relations": rel_ids.len(),
