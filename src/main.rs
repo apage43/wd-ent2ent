@@ -68,9 +68,9 @@ fn main() -> Result<()> {
                 let mut bw = std::io::BufWriter::new(of);
                 orx.into_iter().for_each(|(ssp, sob, spr)| {
                     // write as subj, pred, obj id triple
-                    bw.write_all(&ssp.into_inner().get().to_be_bytes()).unwrap();
-                    bw.write_all(&spr.into_inner().get().to_be_bytes()).unwrap();
-                    bw.write_all(&sob.into_inner().get().to_be_bytes()).unwrap();
+                    bw.write_all(&ssp.into_inner().get().to_le_bytes()).unwrap();
+                    bw.write_all(&spr.into_inner().get().to_le_bytes()).unwrap();
+                    bw.write_all(&sob.into_inner().get().to_le_bytes()).unwrap();
                 });
             })
         }
